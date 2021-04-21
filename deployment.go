@@ -50,7 +50,7 @@ func main() {
 	}
 
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"Deploymanet", "Image", "Last Update"})
+	table.SetHeader([]string{"Deployment", "Image", "Last Update"})
 	for _, d := range list.Items {
 		lastUpdateTime := *&d.Status.Conditions[1].LastUpdateTime
 		updateTime := lastUpdateTime.String()
