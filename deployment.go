@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"flag"
-	"fmt"
 	"os"
 	"path/filepath"
 
@@ -27,7 +26,7 @@ func main() {
 	} else {
 		kubeconfig = flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
 	}
-	namespace = flag.String("namespace", "default", "Specify namespace. Default is default")
+	namespace = flag.String("namespace", "", "Specify namespace. Default is default")
 	flag.Parse()
 
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
@@ -44,7 +43,7 @@ func main() {
 	deploymentsClient := clientset.AppsV1().Deployments(*namespace)
 
 	// List Deployments
-	fmt.Printf("Listing deployments in namespace %q:\n", *namespace)
+	// fmt.Printf("Listing deployments in namespace %q:\n", *namespace)
 	list, err := deploymentsClient.List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		panic(err)
