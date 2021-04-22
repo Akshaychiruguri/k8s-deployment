@@ -11,3 +11,7 @@ cd cmd
 ./deployment  -namespace istio-system
 ```
 
+#### Build
+```
+go build -o cmd/deployment deployment.go  
+```
