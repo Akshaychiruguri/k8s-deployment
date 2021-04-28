@@ -8,7 +8,7 @@ cd cmd
 
 ###### For specific namespace 
 ```
-./deployment  -namespace istio-system
+./deployment  -namespace sock-shop
 ```
 
 #### Build
